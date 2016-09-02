@@ -27,7 +27,6 @@ SUDO=
 
 all: docker_setup docker_start
 
-
 # Setup docker depending on the system running on the server
 docker_setup:
 ifeq ($(REMOTE_SYSTEM),ubuntu)
@@ -47,11 +46,9 @@ endif
 # Start the docker service
 docker_start:
 	@$(SSH) '$(SUDO) service docker start'
-	@echo "[$(APP)] Docker started on the remote machine."
 
 docker_stop:
 	@$(SSH) '$(SUDO) service docker stop'
-	@echo "[$(APP)] Docker stopped on the remote machine."
 
 docker_restart: docker_stop docker_start
 
